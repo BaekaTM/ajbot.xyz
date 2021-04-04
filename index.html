@@ -2,10 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
 	<link rel="icon" href="https://cdn.discordapp.com/attachments/629576665533513741/782244099826384896/logo_ajbot_rond.png">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,700&display=swap" rel="stylesheet">
 	
@@ -19,11 +19,11 @@
 		function strUcFirst(a) { // fonction qui met la première lettre en Maj
             return (a + '').charAt(0).toUpperCase() + a.substr(1);
         }
-
+		
 		var COMMANDS = [
         {
             name: "test",
-            description: "To see if the bot is online.",
+            description: "To see if the bot is on.",
             category: strUcFirst("info | About the bot"),
             usage: [`${PREFIX}test`]
         },
@@ -47,7 +47,7 @@
         },
         {
             name: "addbot",
-            description: "To invite the bot to your discord server.",
+            description: "To invite the bot in your discord server.",
             category: strUcFirst("info | About the bot"),
             usage: [`${PREFIX}addbot`]
         },
@@ -71,7 +71,7 @@
         },
         {
             name: "hug",
-            description: "Let's hug someone using a gif !",
+            description: "Let's hug someone by a gif !",
             category: strUcFirst("love"),
             usage: [`${PREFIX}hug <user>`]
         },
@@ -89,19 +89,19 @@
         },
         {
             name: "hello",
-            description: "Say hello to someone.",
+            description: "Say hello to someone or to everyone.",
             category: strUcFirst("politeness"),
             usage: [`${PREFIX}hello`, `${PREFIX}hello <user>`]
         },
         {
             name: "bye",
-            description: "Say goodbye to someone.",
+            description: "Say goodbye to someone or to everyone.",
             category: strUcFirst("politeness"),
             usage: [`${PREFIX}bye`, `${PREFIX}bye <user>`]
         },
         {
             name: "sorry",
-            description: "Say sorry to someone.",
+            description: "Say sorry to someone or to everyone.",
             category: strUcFirst("politeness"),
             usage: [`${PREFIX}sorry`, `${PREFIX}sorry <user>`]
         },
@@ -113,13 +113,13 @@
         },
         {
             name: "thanks",
-            description: "Thank someone.",
+            description: "Thank someone or everyone.",
             category: strUcFirst("politeness"),
             usage: [`${PREFIX}thanks`, `${PREFIX}thanks <user>`]
         },
         {
             name: "laugh",
-            description: "This command will make you laugh...If you have a weird sense of humour of course",
+            description: "This command will make you laugh...",
             category: strUcFirst("happiness"),
             usage: [`${PREFIX}laugh`]
         },
@@ -131,7 +131,7 @@
         },
         {
             name: "evilsmile",
-            description: "Your deadly smile killed my grandfather <span class=\"emoji scream\"></span>.",
+            description: "You're making the smile of death <span class=\"emoji scream\"></span>.",
             category: strUcFirst("happiness"),
             usage: [`${PREFIX}evilsmile`]
         },
@@ -155,19 +155,19 @@
         },
         {
             name: "afraid",
-            description: "Boo.",
-            category: strUcFirst("unsorted"),
+            description: "Sends a gif in which you're afraid.",
+            category: strUcFirst("violence"),
             usage: [`${PREFIX}afraid`]
         },
         {
             name: "angry",
-            description: "Oh dear, you're mad now!",
+            description: "You're going to explode with anger : goodbye !",
             category: strUcFirst("violence"),
             usage: [`${PREFIX}angry`]
         },
         {
             name: "wasted",
-            description: "Get inside a coffin or make someone get in it!",
+            description: "Go in a coffin or make someone go in it!",
             category: strUcFirst("violence"),
             usage: [`${PREFIX}wasted`, `${PREFIX}wasted <user>`]
         },
@@ -191,7 +191,7 @@
         },
         {
             name: "kill",
-            description: "Think carefully before you kill someone. This command can send anyone to the graveyard <span class=\"emoji coffin\"> <span class=\"emoji skull_crossbones\"></span> ...",
+            description: "Think carefully before you kill someone. This command can send anyone to the cemetery <span class=\"emoji coffin\"> <span class=\"emoji skull_crossbones\"></span> ...",
             category: strUcFirst("violence"),
             usage: [`${PREFIX}kill <user>`]
         },
@@ -350,7 +350,19 @@
             description: "We're glad that ur happy :)",
             category: strUcFirst("happiness"),
             usage: [`${PREFIX}happy`]
-        }
+		},
+		{
+			name: "tweet",
+			description: "Post something on tweeter!",
+			category: "image",
+			usage: [`${PREFIX}tweet <text>`]
+		},
+		{
+			name: "deepfry",
+			description: "Horrible",
+			category: "image",
+			usage: [`${PREFIX}deepfry`, `${PREFIX}deepfry <user>`]
+		}
     ];
 	</script>
 	<style>
@@ -427,6 +439,8 @@
 			--AJBOTpr: #008080;
 			--AJBOTsec: #009b9b;
 			background: var(--bgcolor);
+			scrollbar-color: #44404b transparent;
+			scrollbar-width: 10px;
 		}
 
 		html::-webkit-scrollbar {
@@ -460,23 +474,23 @@
 			position: sticky;
 			top: 0;
 			left: 0;
-			z-index: 2;
+			z-index: 16;
+			box-shadow: 0px 0px 50px #0000009d;
 		}
 
-		header ul {
-			display: flex;
+		header ul.nav {
 			width: 85%;
 			height: 100%;
 			list-style: none;
 			float: left;
 			justify-content: right;
 			position: absolute;
-			left: 45%;
+			left: 40%;
 		}
 
-		header ul li {
+		header ul.nav li {
 			display: inline;
-			width: 12.5%;
+			width: 13.5%;
 			/* border: 1px solid black; */
 			height: 100%;
 			float: left;
@@ -484,7 +498,7 @@
 			transition: all .2s .1s;
 			position: relative;
 		}
-		header ul li:after, header ul li:before {
+		header ul.nav li:after, header ul.nav li:before {
 			content: '';
 			display: block;
 			position: absolute;
@@ -497,19 +511,19 @@
 			transition: all .1s ease;
 		}
 
-		header ul li:before {
+		header ul.nav li:before {
 			left: 0;
 			top: 0;
 		}
-		header ul li:hover:before, header ul li:hover:after {
+		header ul.nav li:hover:before, header ul.nav li:hover:after {
 			transform: scaleY(1);
 		}
 
-		header ul li:hover {
+		header ul.nav li:hover {
 			background-color: var(--AJBOTsec);
 		}
 
-		header ul li a {
+		header ul.nav li a {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -520,6 +534,118 @@
 			transition: all .3s;
 			border-top: none;
 		}
+		ul.nav-mobile {
+			transform: translateY(-115vh);
+			padding-top: 15vh;
+			z-index: 15;
+			height: calc(100vh - 50px);
+			width: 100vw;
+			position: fixed;
+			top: 50px;
+			left: 0;
+			background: var(--AJBOTsec);
+			transition: all .5s ease-in-out;
+		}
+		ul.nav-mobile.open {
+			transform: translateY(0);
+		}
+
+		ul.nav-mobile li {
+			text-align: center;
+			line-height: 80px;
+			font-size: 25pt;
+			transition: all .2s ease;
+		}
+
+		ul.nav-mobile li a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			color: #000;
+			text-decoration: none;
+		}
+		ul.nav-mobile li:hover {
+			background-color: #008f8f;
+		}
+
+
+		#menu-mobile {
+			display: none;
+			visibility: hidden;
+			--widthHamburger: 50px;
+			--heightHamburger: 50px;
+			--heightBarreHamburger: 3px;
+			--transDuration: 0.5s;
+			z-index: 20;
+			position: relative;
+			left: 97.5vw;
+			transform: translateX(-75%);
+			width: var(--widthHamburger);
+			height: var(--heightHamburger);
+			background: var(--AJBOTpr);
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			transition: all var(--transDuration) ease;
+		}
+		.menu-mobile:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: var(--AJBOTsec);
+			width: 50%;
+			height: var(--heightBarreHamburger);
+			transition: all var(--transDuration) ease;
+			z-index: -1;
+		}
+		.menu-mobile.active:before {
+			width: 100%;
+			height: 100%;
+			background-color: var(--AJBOTsec);
+		}
+		.menu-mobile span {
+			background-color: var(--AJBOTsec);
+			width: 50%;
+			height: var(--heightBarreHamburger);
+			position: absolute;
+			transition: all var(--transDuration) ease;
+			transform: translateX(-50%);
+		}
+		.menu-mobile span:nth-child(1) {
+			top: 30%;
+			left: 50%;
+		}
+		.menu-mobile span:nth-child(2) {
+			bottom: 30%;
+			left: 50%;
+		}
+		.menu-mobile.active span {
+			background: var(--AJBOTpr);
+		}
+		.menu-mobile.active span:nth-child(1) {
+			top: 50%;
+			left: 50%;
+			width: 60%;
+			transform: translate(-50%, -50%) rotate(135deg);
+		}
+		.menu-mobile.active span:nth-child(2) {
+			/* display: none; */
+			bottom: 45%;
+			left: 50%;
+			width: 60%;
+			transform: translate(-50%, -50%) rotate(-135deg);
+		}
+		@media (max-width: 1200px) {
+			header div#menu-mobile {
+				display: block;
+				visibility: visible;
+			}
+			header ul.nav {
+				display: none;
+			}
+		}
 
 		.logoAjbot {
 			width: 250px;
@@ -527,6 +653,9 @@
 			position: absolute;
 			left: 25px;
 			top: 15px;
+			z-index: 17;
+			user-select: none;
+			pointer-events: none;
 		}
 
 		section.stats {
@@ -560,6 +689,10 @@
 			transform: scaleX(0.9);
 		}
 
+		article#informations {
+			position: relative;
+			top: 30px;
+		}
 
 		article#informations p {
 			position: relative;
@@ -592,6 +725,17 @@
 			transform: scaleX(0.9);
 		}
 
+		div.separation {
+			background-color: var(--AJBOTpr);
+			width: 100vw;
+			height: 1px;
+			position: relative;
+			top: 50px !important;
+			margin: 50px 0 75px 0;
+			transform: scaleX(0.9);
+			opacity: 0.2;
+		}
+
 
 		.containerSlider {
 			user-select: none;
@@ -603,7 +747,7 @@
 			position: relative;
 			top: 50px;
 			left: 50vw;
-			transform: translateX(-50%) scale(0.9);
+			transform: translateX(-50%);
 			border-radius: 30px;
 		}
 		.containerSlider .slides {
@@ -789,6 +933,9 @@
 		user:before {
 			content: '<user>';
 		}
+		text:before {
+			content: '<text>';
+		}
 
 		article#commands {
 			position: relative;
@@ -796,8 +943,12 @@
 		}
 
 		h1.titre-partie {
+			position: relative;
+			top: 0;
 			text-align: center;
 			color: var(--AJBOTpr);
+			font-weight: bold;
+			font-size: 25pt;
 		}
 
 		article#commands section ul {
@@ -809,12 +960,13 @@
 			transition: all .1s ease;
 		}
 		article#commands section {
-			position: sticky;
-			top: 80px;
+			position: relative;
+			top: 40px;
 			left: 50vw;
 			transform: translateX(-50%);
 			width: 400px;
-			z-index: 10;
+			z-index: 1;
+			margin: 20px 0 20px 0;
 		}
 		
 		article#commands section:hover ul {
@@ -841,16 +993,16 @@
 
 		article#commands table.tbl-commands td {
 			background-color: #0f0f0f;
-			color: #008080;
+			color: var(--AJBOTpr);
 			transition: all .1s ease;
 		}
 
 		article#commands table.tbl-commands td:hover {
 			font-size: 22px;
-			padding: 13px;
+			padding: 10px;
 			background-color: #000;
-			color: #008080;
 			transition: all .05s ease;
+			box-shadow: 0px 0px 10px #00000071;
 		}
 
 		article#commands table.tbl-commands td:nth-child(1) {
@@ -872,10 +1024,8 @@
 
 		article#commands section ul li a:hover {
 			font-size: 18pt;
-			color: steelblue;
-			text-shadow: 0px 0px 15px var(--AJBOTpr),
-						 0px 0px 20px var(--AJBOTpr),
-						 0px 0px 50px var(--AJBOTpr);
+			color: var(--AJBOTpr);
+			text-shadow: 0px 0px 15px var(--AJBOTpr);
 		}
 
 		.titrecmd {
@@ -1207,12 +1357,40 @@
 		<li class="lienMenu"><a target="_blank" href="https://top.gg/bot/727574553576079372/vote"><i class="fas fa-vote-yea"></i>&nbsp;Vote</a></li>
 		<li class="lienMenu"><a target="_blank" href="https://discordapp.com/oauth2/authorize?client_id=727574553576079372&scope=bot&permissions=8"><i class="fas fa-user-plus"></i>&nbsp;Invite bot</a></li>
 	</ul>
+	<div class="menu-mobile" id="menu-mobile" onclick="addClassMenuMobile(), addClassMenuMobileTexte()">
+		<span></span>
+		<span></span>
+	</div>
+	<script>
+		function addClassMenuMobile() {
+			document.getElementById("menu-mobile").classList.toggle("active")
+		}
+
+		function addClassMenuMobileTexte() {
+			document.getElementById("nav-mobile").classList.toggle("open")
+		}
+
+		document.onclick = (e) => {
+			if (e.target.id !== "nav-mobile" && e.target.id !== "menu-mobile") {
+				document.getElementById("menu-mobile").classList.remove("active")
+				document.getElementById("nav-mobile").classList.remove("open")
+			}
+		}
+	</script>
 </header>
+
+<ul class="nav-mobile" id="nav-mobile">
+	<li class="lienMenu-mobile"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+	<li class="lienMenu-mobile"><a href="#commands"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Commands</a></li>
+	<li class="lienMenu-mobile"><a target="_blank" href="https://discord.gg/BW7vSBdgaz"><i class="fab fa-discord"></i>&nbsp;Join Discord</a></li>
+	<li class="lienMenu-mobile"><a target="_blank" href="https://top.gg/bot/727574553576079372/vote"><i class="fas fa-vote-yea"></i>&nbsp;Vote</a></li>
+	<li class="lienMenu-mobile"><a target="_blank" href="https://discordapp.com/oauth2/authorize?client_id=727574553576079372&scope=bot&permissions=8"><i class="fas fa-user-plus"></i>&nbsp;Invite bot</a></li>
+</ul>
 	<img class="logoAjbot" src="https://cdn.discordapp.com/attachments/629576665533513741/782244099826384896/logo_ajbot_rond.png">
 	<section class="stats">
 		<h2>Hi <span class="emoji wave"></span> !</h2>
 		<p>Welcome to the website of <b>AJbot</b>, a simple Discord bot.</p><br>
-		<p>It's a fun bot with lot's of different commands (slice, kill, kiss, hug, smile, cry etc...) You can ask more commands in <a href="https://discord.com/invite/BW7vSBdgaz" target="_blank">our&nbsp;server</a> !</p>
+		<p>It's a fun bot with lot's of different commands (slice, kill, kiss, hug, smile, cry etc...) You can ask more commands in <a href="https://discordapp.com/oauth2/authorize?client_id=727574553576079372&scope=bot&permissions=8" target="_blank">our&nbsp;server</a> !</p>
 	</section>
 
 	<article id="informations">
@@ -1223,6 +1401,7 @@
 		<p><span class="gras">Support server: </span><a href="https://discord.gg/BW7vSBdgaz" target="blank">here</a></p>
 		<p><span class="gras">Help: </span><code class="normal">AJ!help [command]</code></p>
 	</article>
+	<div class="separation"></div>
 
 
 	<!--Thanks a lot, Online Tutorials. It's the best part of this site!-->
@@ -1255,7 +1434,7 @@
 			transform: translateY(-20px);
 		}
 		.containerCitations .boite:hover:after {
-			transform: translateY(20px) rotate(180deg);
+			transform: translateY(35px) rotate(180deg);
 		}
 		.containerCitations .boite:before {
 			display: block;
@@ -1272,7 +1451,7 @@
 			display: block;
 			content: '"';
 			position: absolute;
-			bottom: 10px;
+			bottom: 25px;
 			right: 15px;
 			font-family: 'Cormorant';
 			font-size: 160px;
@@ -1291,10 +1470,10 @@
 			border-radius: 50%;
 			border: 2px solid var(--bgcolor);
 			transition: all .7s ease;
+			user-select: none;
 		}
 		.containerCitations .boite:hover .boiteImg {
 			border: 2px solid var(--AJBOTsec);
-			user-select: none;
 			cursor: pointer;
 			pointer-events: none;
 			box-shadow: 0px 0px 0px 10px var(--AJBOTsec);
@@ -1326,6 +1505,7 @@
 			}
 		}
 	</style>
+	<h1 class="titre-partie">Authors</h1>
 	<div id="bodySimulator">
 		<div class="containerCitations">
 			<div class="boite">
@@ -1344,7 +1524,10 @@
 			</div>
 		</div>
 	</div>
+	<div class="separation"></div>
 	
+	
+	<h1 class="titre-partie">Quick overview</h1>
 	<div class="containerSlider">
 		<div class="slides">
 			<div class="slide" data-text="Tell your love to someone.">
@@ -1367,6 +1550,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="separation"></div>
 	
 	
 	<script type="text/javascript" src="./discord.12.5.1.min.js"></script>
@@ -1393,6 +1577,7 @@
 				<li><a href="#happiness">Happiness</a></li>
 				<li><a href="#politeness">Politeness</a></li>
 				<li><a href="#violence">Violence</a></li>
+				<li><a href="#image">Image</a></li>
 				<li><a href="#unsorted">Unsorted</a></li>
 			</ul>
 		</section>
@@ -1429,6 +1614,13 @@
 				<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
 			</table>
 			<br><br>
+			<h3 class="titrecmd" id="image">Image</h3>
+			<br><br>
+			<table class="tbl-commands" id="tbl-image">
+					<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+			</table>
+			<br><br>
+			
 			<h3 class="titrecmd" id="unsorted">Unsorted</h3>
 			<br><br>
 			<table class="tbl-commands" id="tbl-unsorted">
@@ -1443,17 +1635,86 @@
 		var cmdsPOLITENESS = COMMANDS.filter(cmds => cmds.category.toLowerCase() === "politeness");
 		var cmdsVIOLENCE = COMMANDS.filter(cmds => cmds.category.toLowerCase() === "violence");
 		var cmdsUNSORTED = COMMANDS.filter(cmds => cmds.category.toLowerCase() === "unsorted");
+		var cmdsIMAGE = COMMANDS.filter(cmds => cmds.category.toLowerCase() === "image");
 
 		cmdsINFOBOT.forEach(cmd => document.getElementById("tbl-info").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
 		cmdsLOVE.forEach(cmd => document.getElementById("tbl-love").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
 		cmdsHAPPINESS.forEach(cmd => document.getElementById("tbl-happiness").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
 		cmdsPOLITENESS.forEach(cmd => document.getElementById("tbl-politeness").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
 		cmdsVIOLENCE.forEach(cmd => document.getElementById("tbl-violence").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
+		cmdsIMAGE.forEach(cmd => document.getElementById("tbl-image").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
 		cmdsUNSORTED.forEach(cmd => document.getElementById("tbl-unsorted").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
 		
 		
 	</script>
-
+	<div class="separation"></div>
+	<style>
+		#containerInvite {
+			display: flex;
+			justify-content: center;
+		}
+		a#invite-bot {
+			overflow: hidden;
+			display: inline-block;
+			position: relative;
+			top: 50px;
+			font-size: 25px;
+			text-decoration: none;
+			text-align: center;
+			background-color: var(--AJBOTpr);
+			padding: 25px;
+			width: 140px;
+			height: 100%;
+			color: #000;
+			border-radius: 50px;
+			transition: all .2s ease;
+		}
+		a#invite-bot:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 80px;
+			height: 100%;
+			transform: translateX(110%) skew(20deg);
+			background-color: #fff;
+			opacity: 0.3;
+			transition: all .4s ease;
+		}
+		a#invite-bot:before {
+			content: '';
+			position: absolute;
+			bottom: 5px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 30%;
+			height: 7px;
+			filter: blur(5px);
+			border-radius: 50%;
+			background-color: #000;
+			opacity: 0.4;
+			transition: all .5s ease;
+		}
+		a#invite-bot:hover {
+			/* letter-spacing: 1px; */
+			background-color: var(--AJBOTsec);
+			transform: translateY(-10px);
+			box-shadow: 0px 0px 10px #000;
+			padding-top: 15px;
+			padding-bottom: 35px;
+		}
+		a#invite-bot:hover:after {
+			right: 110%;
+			transform: skew(20deg);
+		}
+		a#invite-bot:hover:before {
+			width: 40%;
+			opacity: 0.8;
+		}
+	</style>
+	<h1 class="titre-partie">Ready ?</h1>
+	<div id="containerInvite"><a target="_blank" href="https://discordapp.com/oauth2/authorize?client_id=727574553576079372&scope=bot&permissions=8" id="invite-bot" class="button-ripple">Invite AJbot</a></div>
+	
 
 <!-- <div id="menu">	
 	<ul id="nav">
