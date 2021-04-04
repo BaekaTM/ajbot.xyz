@@ -126,7 +126,7 @@
         },
         {
             name: "smile",
-            description: "You're smiling like a POTATOOOOooO00O <span class=\"emoji potato\"></span> (sorry).",
+            description: "You're smiling like a POTATOOOOoo0O <span class=\"emoji potato\"></span> (sorry).",
             category: strUcFirst("happiness"),
             usage: [`${PREFIX}smile`]
         },
@@ -198,7 +198,7 @@
         },
         {
             name: "shutup",
-            description: "Tell someone or unspecified people to <b>shut up</b>.",
+            description: "Tell someone or unspecified people to <strong>shut up</strong>.",
             category: strUcFirst("unsorted"),
             usage: [`${PREFIX}shutup`, `${PREFIX}shutup <user>`]
         },
@@ -207,12 +207,6 @@
             description: "Tell someone or unspecified people that they are idiots.",
             category: strUcFirst("unsorted"),
             usage: [`${PREFIX}baka`, `${PREFIX}baka <user>`]
-        },
-        {
-            name: "suprisemutherbutter",
-            description: "SUPRISE MOTHER F*CKER !",
-            category: strUcFirst("unsorted"),
-            usage: [`${PREFIX}suprisemutherbutter`]
         },
         {
             name: "really",
@@ -324,7 +318,7 @@
         },
         {
             name: "run",
-            description: "<b>RUUUUUUUUUUUUUUUUUUN !!!!!!!</b>",
+            description: "<strong>RUUUUUUUUUN !!!</strong>",
             category: strUcFirst("unsorted"),
             usage: [`${PREFIX}run`]
         },
@@ -336,7 +330,7 @@
         },
         {
             name: "random",
-            description: "This command works again ! Sends a random command from aaaall the bot's commands. <br><b>It's better to ask <code>AJ!random <user></code> because the bot has a lot of commands with mentions only and if not he'll answer <code>PLS MENTION SOMEONE</code>.</b>",
+            description: "This command works again ! Sends a random command from aaaall the bot's commands. <br><strong>It's better to ask <code>AJ!random <user></code> because the bot has a lot of commands with mentions only and if not he'll answer <code>PLS MENTION SOMEONE</code>.</strong>",
             category: "unsorted",
             usage: [`${PREFIX}random`, `${PREFIX}random <user>`]
         },
@@ -435,7 +429,6 @@
 			background: var(--bgcolor);
 			font-family: 'Ableton Sans';
 			font-size: 15pt;
-			overflow-x: hidden;
 			--bgcolor: #272a2e;
 			--AJBOTpr: #008080;
 			--AJBOTsec: #009b9b;
@@ -456,6 +449,13 @@
 
 		html, body {
 			scroll-behavior: smooth;
+		}
+		body {
+			clear: none;
+			width: 100vw;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			transform-origin: top left;
 		}
 
 		::selection {
@@ -579,8 +579,8 @@
 			--transDuration: 0.5s;
 			z-index: 20;
 			position: relative;
-			left: 97.5vw;
-			transform: translateX(-75%);
+			left: 100vw;
+			transform: translateX(-100%);
 			width: var(--widthHamburger);
 			height: var(--heightHamburger);
 			background: var(--AJBOTpr);
@@ -589,7 +589,7 @@
 			justify-content: center;
 			transition: all var(--transDuration) ease;
 		}
-		.menu-mobile:before {
+		#menu-mobile:before {
 			content: '';
 			position: absolute;
 			top: 50%;
@@ -601,12 +601,12 @@
 			transition: all var(--transDuration) ease;
 			z-index: -1;
 		}
-		.menu-mobile.active:before {
+		#menu-mobile.active:before {
 			width: 100%;
 			height: 100%;
 			background-color: var(--AJBOTsec);
 		}
-		.menu-mobile span {
+		#menu-mobile span {
 			background-color: var(--AJBOTsec);
 			width: 50%;
 			height: var(--heightBarreHamburger);
@@ -614,29 +614,42 @@
 			transition: all var(--transDuration) ease;
 			transform: translateX(-50%);
 		}
-		.menu-mobile span:nth-child(1) {
+		#menu-mobile span:nth-child(1) {
 			top: 30%;
 			left: 50%;
 		}
-		.menu-mobile span:nth-child(2) {
+		#menu-mobile span:nth-child(2) {
 			bottom: 30%;
 			left: 50%;
 		}
-		.menu-mobile.active span {
+		#menu-mobile.active span {
 			background: var(--AJBOTpr);
 		}
-		.menu-mobile.active span:nth-child(1) {
+		#menu-mobile.active span:nth-child(1) {
 			top: 50%;
 			left: 50%;
 			width: 60%;
 			transform: translate(-50%, -50%) rotate(135deg);
 		}
-		.menu-mobile.active span:nth-child(2) {
+		#menu-mobile.active span:nth-child(2) {
 			/* display: none; */
 			bottom: 45%;
 			left: 50%;
 			width: 60%;
 			transform: translate(-50%, -50%) rotate(-135deg);
+		}
+
+		.logoAjbot {
+			width: 250px;
+			height: 250px;
+			transform: scale(0.7);
+			transform-origin: left top;
+			position: absolute;
+			left: 1vw;
+			top: 0;
+			z-index: 17;
+			user-select: none;
+			pointer-events: none;
 		}
 		@media (max-width: 1200px) {
 			header div#menu-mobile {
@@ -646,23 +659,18 @@
 			header ul.nav {
 				display: none;
 			}
-		}
-
-		.logoAjbot {
-			width: 250px;
-			height: 250px;
-			position: absolute;
-			left: 25px;
-			top: 15px;
-			z-index: 17;
-			user-select: none;
-			pointer-events: none;
+			.logoAjbot {
+				transform: scale(0.4);
+			}
+			/* body {
+				transform: scale(1.3);
+			} */
 		}
 
 		section.stats {
 			display: block;
 			background-color: var(--AJBOTsec);
-			padding: calc(250px / 7) 0 calc(250px / 7) 300px;
+			padding: calc(250px / 7) 0 calc(250px / 7) 15vw;
 		}
 		section.stats p a {
 			color: black;
@@ -693,11 +701,13 @@
 		article#informations {
 			position: relative;
 			top: 30px;
+			overflow: hidden;
 		}
 
 		article#informations p {
 			position: relative;
-			left: 30px;
+			/* left: 30px; */
+			max-width: 373px;
 		}
 		
 		p a {
@@ -931,6 +941,15 @@
 			}
 		}
 
+		@media (max-width: 740px) {
+			.containerSlider {
+				transform: scale(0.5) translateX(-100%);
+			}
+			article#commands section ul {
+				transform: scale(0.8);
+			}
+		}
+
 		user:before {
 			content: '<user>';
 		}
@@ -987,6 +1006,9 @@
 			border-left: 1px solid black;
 			padding: 15px;
 		}
+		article#commands table.tbl-commands td:nth-child(3) {
+			padding: 0;
+		}
 
 		article#commands table.tbl-commands th {
 			background-color: #1a1a1a;
@@ -1010,12 +1032,19 @@
 			text-align: center;
 		}
 
-		article#commands table.tbl-commands td:nth-child(1), article#commands table.tbl-commands th:nth-child(1), article#commands table.tbl-commands td:nth-child(3), article#commands table.tbl-commands th:nth-child(3) {
-			width: 20vw;
+		article#commands table.tbl-commands td:nth-child(1), article#commands table.tbl-commands th:nth-child(1) {
+			width: 25vw;
+			white-space: normal;
+		}
+
+		article#commands table.tbl-commands td:nth-child(2), article#commands table.tbl-commands th:nth-child(2) {
+			width: 75vw;
+			white-space: normal;
 		}
 
 		table.tbl-commands {
 			border-collapse: collapse;
+			max-width: 100vw;
 			width: 100vw;
 		}
 
@@ -1325,9 +1354,17 @@
     		top: -200px;
     	}
 
-    	footer {
-    		border-top: 3px solid #546669;
-    		background-color: #44404b;
+		/* GABRIEL ON TENCUUUUUUUUUUUUUUUUULE */
+
+    	div.footer-JSP {
+			color: #fff;
+			text-align: center;
+    		border-top: 3px solid #009b9b71;
+    		background-color: #1b2122;
+			margin-top: 100px;
+			padding: 25px;
+			position: relative;
+			bottom: -17px;
     	}
 
 		/* FONT AWESOME */
@@ -1388,9 +1425,19 @@
 	<li class="lienMenu-mobile"><a target="_blank" href="https://discordapp.com/oauth2/authorize?client_id=727574553576079372&scope=bot&permissions=8"><i class="fas fa-user-plus"></i>&nbsp;Invite bot</a></li>
 </ul>
 	<img class="logoAjbot" src="https://cdn.discordapp.com/attachments/629576665533513741/782244099826384896/logo_ajbot_rond.png">
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+	<script>
+        gsap.to('.logoAjbot',{
+            scrollTrigger: {
+                scrub: 1
+            },
+            y: -2500,
+        })
+	</script> -->
 	<section class="stats">
 		<h2>Hi <span class="emoji wave"></span> !</h2>
-		<p>Welcome to the website of <b>AJbot</b>, a simple Discord bot.</p><br>
+		<p>Welcome to the website of <strong>AJbot</strong>, a simple Discord bot.</p><br>
 		<p>It's a fun bot with lot's of different commands (slice, kill, kiss, hug, smile, cry etc...) You can ask more commands in <a href="https://discordapp.com/oauth2/authorize?client_id=727574553576079372&scope=bot&permissions=8" target="_blank">our&nbsp;server</a> !</p>
 	</section>
 
@@ -1408,6 +1455,7 @@
 	<!--Thanks a lot, Online Tutorials. It's the best part of this site!-->
 	<style>
 		#bodySimulator {
+			/* visibility: hidden; */
 			margin: 0;
 			padding: 0;
 			display: flex;
@@ -1504,6 +1552,9 @@
 			.containerCitations .boite {
 				margin-top: 80px;
 			}
+			.containerCitations {
+				width: 1000px;
+			}
 		}
 	</style>
 	<h1 class="titre-partie">Authors</h1>
@@ -1585,47 +1636,47 @@
 			<h3 class="titrecmd" id="info">Info | About the bot</h3>
 			<br><br>
 			<table class="tbl-commands" id="tbl-info">
-				<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+				<tr><th>Command</th><th>Description & Usage</th></tr>
 			</table>
 			<br><br>
 			<h3 class="titrecmd" id="love">Love</h3>
 			<br><br>
 			<table class="tbl-commands" id="tbl-love">
-				<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+				<tr><th>Command</th><th>Description & Usage</th></tr>
 			</table>
 			<br><br>
 
 			<h3 class="titrecmd" id="happiness">Happiness</h3>
 			<br><br>
 			<table class="tbl-commands" id="tbl-happiness">
-				<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+				<tr><th>Command</th><th>Description & Usage</th></tr>
 			</table>
 			<br><br>
 
 			<h3 class="titrecmd" id="politeness">Politeness</h3>
 			<br><br>
 			<table class="tbl-commands" id="tbl-politeness">
-				<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+				<tr><th>Command</th><th>Description & Usage</th></tr>
 			</table>
 			<br><br>
 
 			<h3 class="titrecmd" id="violence">Violence</h3>
 			<br><br>
 			<table class="tbl-commands" id="tbl-violence">
-				<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+				<tr><th>Command</th><th>Description & Usage</th></tr>
 			</table>
 			<br><br>
 			<h3 class="titrecmd" id="image">Image</h3>
 			<br><br>
 			<table class="tbl-commands" id="tbl-image">
-					<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+					<tr><th>Command</th><th>Description & Usage</th></tr>
 			</table>
 			<br><br>
 
 			<h3 class="titrecmd" id="unsorted">Unsorted</h3>
 			<br><br>
 			<table class="tbl-commands" id="tbl-unsorted">
-					<tr><th>Command</th><th>Description</th><th>Usage</th></tr>
+					<tr><th>Command</th><th>Description & Usage</th></tr>
 			</table>
 	</article>
 
@@ -1638,13 +1689,13 @@
 		var cmdsUNSORTED = COMMANDS.filter(cmds => cmds.category.toLowerCase() === "unsorted");
 		var cmdsIMAGE = COMMANDS.filter(cmds => cmds.category.toLowerCase() === "image");
 
-		cmdsINFOBOT.forEach(cmd => document.getElementById("tbl-info").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
-		cmdsLOVE.forEach(cmd => document.getElementById("tbl-love").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
-		cmdsHAPPINESS.forEach(cmd => document.getElementById("tbl-happiness").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
-		cmdsPOLITENESS.forEach(cmd => document.getElementById("tbl-politeness").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
-		cmdsVIOLENCE.forEach(cmd => document.getElementById("tbl-violence").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
-		cmdsIMAGE.forEach(cmd => document.getElementById("tbl-image").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
-		cmdsUNSORTED.forEach(cmd => document.getElementById("tbl-unsorted").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}</td><td>${cmd.usage.join("<br>").toString()}</td></tr>`)
+		cmdsINFOBOT.forEach(cmd => document.getElementById("tbl-info").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}<br><br><strong>Usage:</strong> ${cmd.usage.join("<br>").toString()}</td></tr>`)
+		cmdsLOVE.forEach(cmd => document.getElementById("tbl-love").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}<br><br><strong>Usage:</strong> ${cmd.usage.join("<br>").toString()}</td></tr>`)
+		cmdsHAPPINESS.forEach(cmd => document.getElementById("tbl-happiness").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}<br><br><strong>Usage:</strong> ${cmd.usage.join("<br>").toString()}</td></tr>`)
+		cmdsPOLITENESS.forEach(cmd => document.getElementById("tbl-politeness").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}<br><br><strong>Usage:</strong> ${cmd.usage.join("<br>").toString()}</td></tr>`)
+		cmdsVIOLENCE.forEach(cmd => document.getElementById("tbl-violence").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}<br><br><strong>Usage:</strong> ${cmd.usage.join("<br>").toString()}</td></tr>`)
+		cmdsIMAGE.forEach(cmd => document.getElementById("tbl-image").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}<br><br><strong>Usage:</strong> ${cmd.usage.join("<br>").toString()}</td></tr>`)
+		cmdsUNSORTED.forEach(cmd => document.getElementById("tbl-unsorted").innerHTML+=`<tr><td>${strUcFirst(cmd.name)}</td><td>${cmd.description}<br><br><strong>Usage:</strong> ${cmd.usage.join("<br>").toString()}</td></tr>`)
 		
 		
 	</script>
@@ -1715,66 +1766,6 @@
 	</style>
 	<h1 class="titre-partie">Ready ?</h1>
 	<div id="containerInvite"><a target="_blank" href="https://discordapp.com/oauth2/authorize?client_id=727574553576079372&scope=bot&permissions=8" id="invite-bot" class="button-ripple">Invite AJbot</a></div>
-	
-
-<!-- <div id="menu">	
-	<ul id="nav">
-		<li class="sm">
-			<a class="lien" href="#">ACCUEIL</a>
-		</li>
-		<li class="sm">
-			<a class="lien" href="#ptcp">PARTICIPANTS</a>
-		</li>
-		<li class="sm">
-			<a class="lien" target="_blank" href="https://top.gg/bot/727574553576079372/vote">VOTEZ POUR MOI (svp)</a>
-		</li>
-		<li class="sm" id="add">
-			<a class="lien" id="adlien" target="_blank" href="https://discord.com/oauth2/authorize?client_id=727574553576079372&scope=bot&permissions=8">AJOUTEZ-MOI !!</a>
-		</li>
-	</ul></div>
-	<center><img draggable="false" oncontextmenu="return false" id="logo" src="https://cdn.discordapp.com/attachments/629576665533513741/782244099826384896/logo_ajbot_rond.png" title="Tu serais pas un peu hypnotisé(e), par hasard ?">
-		<br><br><br><br><p id="toudebu">AJbot est un bot amusant avec beaucoup de commandes différentes (couper, tuer, embrasser, faire un câlin, sourire, pleurer, etc.) Vous pouvez demander plus de commandes dans notre serveur !</p>
-		<br><br><br><br><br><div id="toubaeka"><div id="ppbaka"></div><div id="baekaka">Baeka#2540, créateur d'AJbot :</div><div id="baka"><q id="baeka">Salut les gars ! J'ai fait un bot pour m'amuser avec des amis ou avec une communauté. J'ai d'abord fait ce bot pour mon petit serveur mais j'aimerais bien que vous l'aidiez à découvrir discord ! Voici la commande qui vous dévoilera tous les secrets du bot : ("aj!help") Si vous en voulez plus, demandez sur notre serveur de support ! Je ferai de mon mieux pour l'améliorer ! Si vous aimez le bot, partagez-le avec vos amis et la communauté, merci ! Le bot a rejoint plus de 100 serveurs ! Merci beaucoup ! (Merci à Kamboo#9639, qui a fait la photo de profil et le site sur lequel vous êtes actuellement !).</q></div></div>
-		<div id="toukamboo"><div id="ppkamboo" id="ppbaka"></div><div id="kakamboo" id="baekaka">Kamboo#2540, s'occupe du design d'AJbot :</div><div id="baka"><q id="baeka">Hi there! I've been programming and drawing for a long time, and when Baeka created his bot, after fixing the problems with the code, he was looking for a profile picture.He tried a lot of them, without ever being satisfied, when I wanted to surprise him by drawing a potato with a mask (for the COVID-19) with the programming logo behind it : </> (For those who are interested, I did it in vector drawing on Inkscape software). Now I'm fully invested in the AJbot project and I work with Baeka almost daily. In simple terms, I'm a full-time slave ^^.</q></div></div>
-		<center><p id="ptcp">participants :</p></center>
-		<table>
-			<tr>
-				<td>
-					<center><div class="bakamboo">
-						<div id="tbppbk"></div>
-						<p id="pbk">Baeka#2540 a créé le bot (avec la bibliothèque Discord.js)</p>
-					</div></center>
-				</td>
-				<td><center>
-					<div class="bakamboo">
-						<div id="tbppkb"></div>
-						<p id="pkb">Kamboo#9639 a créé le site et la photo de profil (avec ses mains et son ordi).</p>
-					</div>
-				</td></center>
-			</tr>
-		</table>
-	</center>
-	</center><br><br>
-	<style type="text/css">
-		img#flhoaj {
-			cursor: pointer;
-			width: 50px;
-			position: sticky;
-			bottom: 10px;
-			opacity: 0;
-			transition: all .1s;
-		}
-
-		img#flhoaj:active {
-			transform: scale(0.5);
-		}
-
-		img#flhoaj:hover {
-			transform: translateY(5px);
-		}
-	</style>
-	<img onclick="window.scroll(0, 0);" align="right" id="flhoaj" src="https://cdn.discordapp.com/attachments/753309928273346710/783674179412951072/ajbup.png">
-	<footer><center><p id="ftr">&copy; Kamboo & Baeka 2020, tous droits réservés.<br>
-	Site codé par Kamboo.</p></center></footer> -->
+	<div class="footer-JSP">Made with <span class="emoji heart"></span> by Kamboo#9639 & Baeka#2540</div>
 </body>
 </html>
