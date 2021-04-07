@@ -1,3 +1,2 @@
-
-<iframe src="https://ajbot.xyz"><\iframe>
-
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
