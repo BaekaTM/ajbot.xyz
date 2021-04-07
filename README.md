@@ -1,1 +1,3 @@
-We made a website for our discord bot.
+<html>
+<iframe src="https://ajbot.xyz"><\iframe>
+<\html>
