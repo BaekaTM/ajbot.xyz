@@ -167,8 +167,6 @@ ul.nav-mobile {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transform: translateY(-150vh);
-    /* padding-top: 15vh; */
     z-index: 15;
     height: calc(100vh - 50px);
     width: 100vw;
@@ -176,10 +174,11 @@ ul.nav-mobile {
     top: 50px;
     left: 0;
     background: var(--AJBOTsec);
-    transition: all .5s ease-in-out;
+    clip-path: circle(0% at 100% -50%);
+    transition: clip-path .5s cubic-bezier(0.94, -0.01, 0.67, 1.04);
 }
 ul.nav-mobile.open {
-    transform: translateY(0);
+    clip-path: circle(100%);
 }
 
 ul.nav-mobile li {
