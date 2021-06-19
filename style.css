@@ -1161,7 +1161,7 @@ article#commands div a:before {
 }
 article#commands div a:hover:before {
     filter: blur(1px);
-    opacity: 0.1;
+    opacity: 0.3;
     letter-spacing: 10px;
     font-size: 50pt;
 }
