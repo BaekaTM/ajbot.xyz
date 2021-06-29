@@ -1,12 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Kamboo and Baeka">
+    <meta name="description" content="Discord bot made with ❤ by Kamboo#5722 and Baeka#6495.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ajbot.xyz">
+    <meta property="og:site_name" content="AJbot">
+    <meta property="og:title" content="AJbot">
+    <meta property="og:description" content="Discord bot made with ❤ by Kamboo#5722 and Baeka#6495.">
+    <meta property="og:image"
+        content="https://cdn.discordapp.com/attachments/629576665533513741/782244099826384896/logo_ajbot_rond.png" />
+    <meta name=theme-color content=#008080>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="icon"
+        href="https://cdn.discordapp.com/attachments/629576665533513741/782244099826384896/logo_ajbot_rond.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./contact.css">
+    <script type="text/javascript">
+        window._mNHandle = window._mNHandle || {};
+        window._mNHandle.queue = window._mNHandle.queue || [];
+        medianet_versionId = "3121199";
+    </script>
+    <script src="https://contextual.media.net/dmedianet.js?cid=8CUZHEBOB" async="async"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-197098967-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-197098967-1');
+    </script>
+    <link rel="stylesheet" href="./style.css">
+    <title>AJbot</title>
 </head>
+
 <body>
-    <p>(not) coming soon</p>
-</body>
+    <script type="text/javascript" src="./main.js"></script>
+    <header>
+        <ul class="nav">
+            <li class="lienMenu"><a href="./index"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+            <li class="lienMenu"><a target="_blank" href="https://docs.ajbot.xyz"><i class="fa fa-book"
+                        aria-hidden="true"></i>&nbsp;Docs</a></li>
+            <li class="lienMenu-mobile"><a style="cursor: pointer" onclick="window.scrollTo(0, 0)"><i class="fas fa-comment-alt"></i>&nbsp;Contact Us</a></li>
+            <li class="lienMenu"><a target="_blank" href="http://discord.ajbot.xyz"><i
+                        class="fab fa-discord"></i>&nbsp;Join Discord</a></li>
+            <li class="lienMenu"><a target="_blank" href="http://vote.ajbot.xyz"><i
+                        class="fas fa-vote-yea"></i>&nbsp;Vote</a></li>
+            <li class="lienMenu"><a target="_blank" href="http://invite.ajbot.xyz"><i
+                        class="fas fa-user-plus"></i>&nbsp;Invite bot</a></li>
+        </ul>
+        <div class="menu-mobile" id="menu-mobile" onclick="addClassMenuMobile(), addClassMenuMobileTexte()">
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <ul class="nav-mobile" id="nav-mobile">
+        <li class="lienMenu-mobile"><a href="./index"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a>
+        </li>
+        <li class="lienMenu-mobile"><a target="_blank" href="https://docs.ajbot.xyz"><i class="fa fa-book"
+                    aria-hidden="true"></i>&nbsp;Docs</a></li>
+        <li class="lienMenu-mobile"><a style="cursor: pointer" onclick="window.scrollTo(0, 0)"><i class="fas fa-comment-alt"></i>&nbsp;Contact Us</a></li>
+        <li class="lienMenu-mobile"><a target="_blank" href="http://discord.ajbot.xyz"><i
+                    class="fab fa-discord"></i>&nbsp;Join Discord</a></li>
+        <li class="lienMenu-mobile"><a target="_blank" href="http://vote.ajbot.xyz"><i
+                    class="fas fa-vote-yea"></i>&nbsp;Vote</a></li>
+        <li class="lienMenu-mobile"><a target="_blank" href="http://invite.ajbot.xyz"><i
+                    class="fas fa-user-plus"></i>&nbsp;Invite bot</a></li>
+    </ul>
+    <img class="logoAjbot"
+        src="https://cdn.discordapp.com/attachments/629576665533513741/782244099826384896/logo_ajbot_rond.png">
+    <!-- <section class="stats">
+        <h2 id="contact-us-titre">Contact us</h2><br>
+        <p>Here you can send us an e-mail. Give your opinion about ajbot!</p>
+    </section> -->
+
+    <div class="container">
+        <form action="https://formsubmit.co/ajbot.xyz@gmail.com" method="post">
+
+            <input type="hidden" name="_captcha" value="false">
+            <div class="input">
+                <label for="contact-name">Name</label>
+                <input type="text" name="name" id="contact-name" autofocus>
+            </div>
+
+            <div class="input"><label for="contact-email" class="requis">Email</label>
+                <input type="email" name="email" id="contact-email" required>
+            </div>
+
+            <input type="hidden" name="_next" value="https://ajbot.xyz">
+
+            <div class="input"><label for="contact-message" class="requis">Message</label>
+                <textarea type="text" name="message" id="contact-message" placeholder="Write your message here" required
+                    autocomplete="off"></textarea>
+            </div>
+
+            <div class="input" id="div-btn">
+                <button type="submit"><i class="fas fa-paper-plane"></i> Send!</button>
+            </div>
+        </form>
+    </div>
+
 </html>
