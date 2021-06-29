@@ -108,18 +108,18 @@ header {
 }
 
 header ul.nav {
-    width: 85%;
+    width: 95%;
     height: 100%;
     list-style: none;
     float: left;
     justify-content: right;
     position: absolute;
-    left: 40%;
+    left: 32%;
 }
 
 header ul.nav li {
     display: inline;
-    width: 13.5%;
+    width: 11.5%;
     /* border: 1px solid black; */
     height: 100%;
     float: left;
