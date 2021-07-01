@@ -13,7 +13,7 @@ document.onclick = (e) => {
     }
 }
 
-function updateServerCount() {
+/*function updateServerCount() {
     let servercount = document.getElementById("b-servercount-vrm");
 
     let request = new XMLHttpRequest();
@@ -31,4 +31,4 @@ function updateServerCount() {
     }
 }
 
-updateServerCount()
+updateServerCount()*/
