@@ -989,8 +989,6 @@ p#ptcp {
     top: -200px;
 }
 
-/* GABRIEL ON TENCUUUUUUUUUUUUUUUUULE */
-
 div.footer-JSP {
     color: #fff;
     text-align: center;
@@ -1004,7 +1002,7 @@ div.footer-JSP {
 
 div.footer-JSP a {
     color: #fff;
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: bolder;
 }
 
