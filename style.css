@@ -1002,6 +1002,12 @@ div.footer-JSP {
     bottom: -17px;
 }
 
+div.footer-JSP a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
 /* FONT AWESOME */
 
 .fab {
