@@ -1,4 +1,3 @@
-var canRunAds = true;
 function addClassMenuMobile() {
     document.getElementById("menu-mobile").classList.toggle("active")
 }
