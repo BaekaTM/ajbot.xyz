@@ -40,11 +40,18 @@
     </script>
     <link rel="stylesheet" href="./style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-197098967-1">
+    <script src="./ads-prebid.js">
     <title>AJbot</title>
 </head>
 
 <body>
     <script type="text/javascript" src="./main.js"></script>
+    <script>
+        if( window.canRunAds === undefined ){
+            alert('Disable adblock please ^^')
+            window.location.reload();
+        }
+    </script>
     <header>
         <ul class="nav">
             <li class="lienMenu"><a href="/"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
