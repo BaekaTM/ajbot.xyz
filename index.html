@@ -40,6 +40,12 @@
 
     <body>
         <script type="text/javascript" src="./main.js" defer></script>
+        <script>
+            if( window.canRunAds === undefined ){
+                alert('Disable adblock pleaseeeeeeeee')
+                window.location.reload();
+            }
+        </script>
         <header>
             <ul class="nav">
                 <li class="lienMenu"><a style="cursor: pointer;" onclick="window.scrollTo(0,0)"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
