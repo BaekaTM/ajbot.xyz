@@ -133,3 +133,23 @@
         margin-left: auto;
     }
 }
+
+#contact-message::-webkit-scrollbar-track {
+    padding-bottom: 2px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #272a2f;
+}
+
+#contact-message::-webkit-scrollbar {
+    padding-bottom: 2px;
+    width: 0px;
+    background-color: #272a2f;
+}
+
+#contact-message::-webkit-scrollbar-thumb {
+    padding-bottom: 2px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #009b9b;
+}
