@@ -1,5 +1,5 @@
 
-## About The Project
+## About The Project (Deprecated)
 
 
 Hello! [ajbot.xyz](https://ajbot.xyz) is a website for [our discord bot](https://top.gg/bot/727574553576079372) ^^.
